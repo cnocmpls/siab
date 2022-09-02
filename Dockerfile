@@ -15,7 +15,9 @@ ENV SIAB_USERCSS="Normal:+/etc/shellinabox/options-enabled/00+Black-on-White.css
     SIAB_SERVICE=/:LOGIN \
     SIAB_PKGS=none \
     SIAB_SCRIPT=none
+    
 ADD assets/user-css.tar.gz /
+
 RUN apt-get update && apt-get install -y openssl curl openssh-client sudo shellinabox telnet && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
