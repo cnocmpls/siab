@@ -16,8 +16,11 @@ ENV SIAB_USERCSS="Normal:+/etc/shellinabox/options-enabled/00+Black-on-White.css
     SIAB_PKGS=none \
     SIAB_SCRIPT=none
 
-RUN apt-get update && apt-get install -y openssl curl openssh-client sudo shellinabox telnet && \
+ADD assets/entrypoint.sh /usr/local/sbin/
+
+RUN apt-get update && apt-get install -y openssl curl openssh-client sudo shellinabox telnet dos2unix && \
     apt-get clean && \
+    dos2unix /usr/local/sbin/entrypoint.sh && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     ln -sf '/etc/shellinabox/options-enabled/00+Black on White.css' \
       /etc/shellinabox/options-enabled/00+Black-on-White.css && \
@@ -29,8 +32,6 @@ RUN apt-get update && apt-get install -y openssl curl openssh-client sudo shelli
 EXPOSE 4200
 
 VOLUME /etc/shellinabox /var/log/supervisor /home
-
-ADD assets/entrypoint.sh /usr/local/sbin/
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["shellinabox"]
