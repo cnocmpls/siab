@@ -25,14 +25,13 @@ RUN apt-get update && apt-get install -y openssl curl openssh-client sudo shelli
     ln -sf '/etc/shellinabox/options-enabled/00_White On Black.css' \
       /etc/shellinabox/options-enabled/00_White-On-Black.css && \
     ln -sf '/etc/shellinabox/options-enabled/01+Color Terminal.css' \
-      /etc/shellinabox/options-enabled/01+Color-Terminal.css && \
-    chmod +x /tmp/entrypoint.sh
+      /etc/shellinabox/options-enabled/01+Color-Terminal.css
 
 EXPOSE 4200
 
 VOLUME /etc/shellinabox /var/log/supervisor /home
 
-ADD assets/entrypoint.sh /tmp
+ADD assets/entrypoint.sh /tmp/
 RUN chmod +x /tmp/entrypoint.sh
 
 ENTRYPOINT ["/tmp/entrypoint.sh"]
