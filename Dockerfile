@@ -31,7 +31,7 @@ EXPOSE 4200
 
 VOLUME /etc/shellinabox /var/log/supervisor /home
 
-ADD assets/entrypoint.sh /
+ADD assets/entrypoint.sh /tmp
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/tmp/entrypoint.sh"]
 CMD ["shellinabox"]
