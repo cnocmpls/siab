@@ -8,7 +8,7 @@ hex()
 }
 
 echo "Preparing container .."
-COMMAND="/usr/bin/shellinaboxd --no-beep -u shellinabox -g shellinabox -p ${SIAB_PORT} --user-css ${SIAB_USERCSS} -s ${SIAB_SERVICE}"
+COMMAND="/usr/bin/shellinaboxd --no-beep -u shellinaboxd -g shellinaboxd -p ${SIAB_PORT} --user-css ${SIAB_USERCSS} -s ${SIAB_SERVICE}"
 #COMMAND="/usr/bin/shellinaboxd --debug --no-beep --disable-peer-check -u shellinabox -g shellinabox -c /var/lib/shellinabox -p ${SIAB_PORT} --user-css ${SIAB_USERCSS} -s ${SIAB_SERVICE}"
 
 if [ "$SIAB_PKGS" != "none" ]; then
