@@ -44,9 +44,9 @@ if [ "${SIAB_ADDUSER}" == "true" ]; then
 fi
 
 #for service in ${SIAB_SERVICE}; do
-#	COMMAND+=" -s ${service}"
+#	COMMAND+=" -s \"${service}\""
 #done
-COMMAND+=" -s ${SIAB_SERVICE}"
+COMMAND+=" -s \"${SIAB_SERVICE}\""
 if [ "$SIAB_SCRIPT" != "none" ]; then
 	set +e
 	/usr/bin/curl -s -k ${SIAB_SCRIPT} > /prep.sh
