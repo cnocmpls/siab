@@ -8,8 +8,8 @@ hex()
 }
 
 echo "Preparing container .."
-COMMAND="/usr/bin/shellinaboxd --no-beep -u shellinaboxd -g shellinaboxd -p ${SIAB_PORT} --user-css ${SIAB_USERCSS} -s ${SIAB_SERVICE}"
-#COMMAND="/usr/bin/shellinaboxd --debug --no-beep --disable-peer-check -u shellinabox -g shellinabox -c /var/lib/shellinabox -p ${SIAB_PORT} --user-css ${SIAB_USERCSS} -s ${SIAB_SERVICE}"
+#COMMAND="/usr/bin/shellinaboxd --no-beep -u shellinabox -g shellinabox -p ${SIAB_PORT} --user-css ${SIAB_USERCSS}"
+COMMAND="/usr/bin/shellinaboxd --debug --no-beep --disable-peer-check -u shellinabox -g shellinabox -c /var/lib/shellinabox -p ${SIAB_PORT} --user-css ${SIAB_USERCSS}"
 
 if [ "$SIAB_PKGS" != "none" ]; then
 	set +e
@@ -46,7 +46,7 @@ fi
 #for service in ${SIAB_SERVICE}; do
 #	COMMAND+=" -s ${service}"
 #done
-
+COMMAND+=" -s ${SIAB_SERVICE}"
 if [ "$SIAB_SCRIPT" != "none" ]; then
 	set +e
 	/usr/bin/curl -s -k ${SIAB_SCRIPT} > /prep.sh
