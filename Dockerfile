@@ -16,7 +16,7 @@ ENV SIAB_USERCSS="Normal:+/etc/shellinabox/options-enabled/00+Black-on-White.css
     SIAB_PKGS=none \
     SIAB_SCRIPT=none
 
-ADD assets/entrypoint.sh /usr/local/sbin/
+ADD assets/entrypoint.sh /
 
 RUN apt-get update && apt-get install -y openssl curl openssh-client sudo shellinabox telnet dos2unix && \
     apt-get clean && \
@@ -33,5 +33,5 @@ EXPOSE 4200
 
 VOLUME /etc/shellinabox /var/log/supervisor /home
 
-ENTRYPOINT ["/usr/local/sbin/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["shellinabox"]
