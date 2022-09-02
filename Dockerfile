@@ -13,6 +13,7 @@ ENV SIAB_USERCSS="Normal:+/etc/shellinabox/options-enabled/00+Black-on-White.css
     SIAB_SUDO=false \
     SIAB_SSL=true \
     SIAB_SERVICE=/:LOGIN \
+    SIAB_DEST=none \
     SIAB_PKGS=none \
     SIAB_SCRIPT=none
 
