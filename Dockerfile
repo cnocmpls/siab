@@ -33,5 +33,5 @@ VOLUME /etc/shellinabox /var/log/supervisor /home
 
 ADD assets/entrypoint.sh /
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["shellinabox"]
