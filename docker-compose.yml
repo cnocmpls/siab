@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  shellinabox:
+    image: cnocmpls/siab:latest
+    environment:
+      - SIAB_USER=siab
+      - SIAB_GROUP=siab
+      - SIAB_ADDUSER=true
+      - SIAB_PASSWORD=setstrongpassword
+      - SIAB_SSL=false
+      - SIAB_SERVICE=/:AUTH:HOME:/usr/bin/telnet
+      - SIAB_PORT=80
+    hostname: shellinabox
+    networks:
+      - network1
+      - traefik
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.tags=public
+        - traefik.http.services.shellinabox.loadbalancer.server.port=80
+        - traefik.http.routers.shellinabox.rule=Host(`shell.domain.com`)
+        - traefik.docker.network=traefik
+networks:
+  network1:
+    external: true
+    name: network1
+  traefik:
+    external: true
+    name: traefik
