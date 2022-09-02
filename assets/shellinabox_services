@@ -2,4 +2,4 @@
 SHELLINABOX_SERVICE_LOCAL	local	LOGIN
 SHELLINABOX_SERVICE_HOST	host	SSH:$DOCKER_HOST
 SHELLINABOX_SERVICE_WHO		who	nobody:nogroup:/:w
-SHELLINABOX_SERVICE_TELNET      telnet   nobody:nogroup:/:telnet
+SHELLINABOX_SERVICE_TELNET      telnet  nobody:nogroup:/:telnet
